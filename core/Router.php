@@ -5,7 +5,7 @@ class Router
 {
     public function run()
     {
-        var_dump($_SERVER);
+        var_export($_SERVER);
     }
 
 }
