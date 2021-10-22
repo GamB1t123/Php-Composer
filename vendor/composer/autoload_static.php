@@ -34,8 +34,12 @@ class ComposerStaticInitc657257d656d82012e3d5fe5ecdd4443
     );
 
     public static $classMap = array (
+        'App\\Controller\\Admin\\Index' => __DIR__ . '/../..' . '/app/Controller/Admin/Index.php',
+        'App\\Controller\\Errors\\Error404' => __DIR__ . '/../..' . '/app/Controller/Errors/Error404.php',
+        'App\\Controller\\Home\\CHome' => __DIR__ . '/../..' . '/app/Controller/Home/CHome.php',
+        'App\\Controller\\index' => __DIR__ . '/../..' . '/app/Controller/index.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Controller\\Controller' => __DIR__ . '/../..' . '/app/controller/Controller.php',
+        'Core\\MY_Exceptions' => __DIR__ . '/../..' . '/core/MY_Exceptions.php',
         'Core\\Router' => __DIR__ . '/../..' . '/core/Router.php',
     );
 
