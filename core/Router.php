@@ -73,6 +73,8 @@ class Router
         $this->controller = (!empty($path[1])) ? $path[1] : 'CHome';
         $this->method = (!empty($path[2])) ? $path[2] : 'chome';
     }
+    
+    //За контроллер Error 404 не впевнений, нічого іншого не придумав
 //    public function error()
 //    {   $classNameSpace = 'App\Controller\Home\\' . $this->controller;
 //        $classNameSpace1 = 'App\Controller\Admin\\' . $this->controller;
