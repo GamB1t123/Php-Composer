@@ -3,93 +3,65 @@
 namespace Core;
 
 
+use App\Controller\Admin\Index;
 use App\Controller\Errors\Error404;
 
 class Router
 {
-    protected $controller;
-    protected $method;
+    private $routes;
 
-    public function __construct()
-    {
-        $this->init();
-        $this->init1();
+    public function __construct() {
+        $routesPath = ROOT.'/app/config/index.php';
+        $this->routes = include_once $routesPath;
 
     }
+    private function getURI() {
 
-    public function run()
-    {
-        $classNameSpace = 'App\Controller\Admin\\' . $this->controller;
-
-
-        if (class_exists($classNameSpace)) {
-            $clsObj = new $classNameSpace;
-            $method = $this->method;
-            if (method_exists($clsObj, $method)) {
-                return $clsObj->$method();
-            }
-
+        if (!empty($_SERVER['REQUEST_URI'])) {
+            return trim($_SERVER['REQUEST_URI'], '/');
         }
+    }
+    private function error()
+    {
         $obj = new Error404();
         $obj->index();
     }
-
-    public function init()
+    public function run()
     {
-        $path = [];
-        if (!empty($_SERVER['REDIRECT_URL'])) {
-            $path = explode('/', $_SERVER['REDIRECT_URL']);
-        }
-
-
-       $this->controller = (!empty($path[1])) ? $path[1] : 'Index';
-        $this->method = (!empty($path[2])) ? $path[2] : 'chome';
-
-    }
-
-
-    public function run1()
-    {
-        $classNameSpace = 'App\Controller\Home\\' . $this->controller;
-
-        if (class_exists($classNameSpace)) {
-            $clsObj = new $classNameSpace;
-            $method = $this->method;
-            if (method_exists($clsObj, $method)) {
-                return $clsObj->$method();
+        $uri = $this->getURI();
+        $namespace = array_search($uri, $this->routes);
+        if ($namespace != false) {
+            $classnamespace = explode('@', $namespace);
+            if (class_exists($classnamespace[0])) {
+                $class = new $classnamespace[0];
+                $method = $classnamespace[1];
+                if (method_exists($class, $method)) {
+                    $class->$method();
+                } else {
+                    $this->error();
+                }
+            } else {
+                $this->error();
             }
         }
-
-
     }
-
-    public function init1()
-    {
-        $path = [];
-        if (!empty($_SERVER['REDIRECT_URL'])) {
-            $path = explode('/', $_SERVER['REDIRECT_URL']);
-        }
-
-        $this->controller = (!empty($path[1])) ? $path[1] : 'CHome';
-        $this->method = (!empty($path[2])) ? $path[2] : 'chome';
-    }
-    
-    //За контроллер Error 404 не впевнений, нічого іншого не придумав
-//    public function error()
-//    {   $classNameSpace = 'App\Controller\Home\\' . $this->controller;
-//        $classNameSpace1 = 'App\Controller\Admin\\' . $this->controller;
-//        if (class_exists($classNameSpace, $classNameSpace1)) {
+//            $classnamespace = explode('@', $namespace);
 //
-//        } else {
-//            $obj = new Error404();
-//            $obj->index();
+//            if (class_exists($classnamespace[0])) {
+//                $class = new $classnamespace[0];
+//                $method = $classnamespace[1];
+//                var_dump($$method);
+//                if (method_exists($class, $method)) {
+//                    $class->$method();
+//                } else {
+//                    $this->error();
+//                }
+//            } else {
+//                $this->error();
+//            }
 //        }
-//
-//
-//
 //    }
-
-
+//
 
 
 }

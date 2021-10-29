@@ -1,14 +1,13 @@
 <?php
 
 
-namespace App\Controller\Admin;
+namespace App\Controller\admin;
 
 
-class Index
-
+class index
 {
-    public function chome()
+    public function admin()
     {
-        print_r('I\'m very good Admin');
+        print_r( " I'm very good Admin");
     }
 }
