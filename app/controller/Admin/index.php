@@ -4,10 +4,12 @@
 namespace App\Controller\admin;
 
 
-class index
+use App\Controller\Controller;
+
+class index extends Controller
 {
     public function admin()
     {
-        print_r( " I'm very good Admin");
+        $this->generate('admin/admin/index');
     }
 }

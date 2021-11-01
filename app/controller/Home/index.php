@@ -3,7 +3,6 @@
 
 namespace App\Controller\Home;
 
-
 use App\Controller\Controller;
 
 class index extends Controller
