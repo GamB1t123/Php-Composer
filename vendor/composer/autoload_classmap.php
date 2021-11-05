@@ -21,4 +21,5 @@ return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Core\\Router' => $baseDir . '/core/Router.php',
     'Core\\View' => $baseDir . '/core/View.php',
+    'Lib\\DB\\Connector' => $baseDir . '/lib/DB/Connector.php',
 );
