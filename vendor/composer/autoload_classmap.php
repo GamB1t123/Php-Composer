@@ -22,4 +22,6 @@ return array(
     'Core\\Router' => $baseDir . '/core/Router.php',
     'Core\\View' => $baseDir . '/core/View.php',
     'Lib\\DB\\Connector' => $baseDir . '/lib/DB/Connector.php',
+    'Lib\\DB\\Select' => $baseDir . '/lib/DB/Select.php',
+    'Lib\\DB\\Where' => $baseDir . '/lib/DB/Where.php',
 );
