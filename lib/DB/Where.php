@@ -6,6 +6,21 @@ namespace Lib\DB;
 
 class Where
 {
+    protected $conditions;
+    protected $whereString;
+
+    public function __construct($conditions)
+    {
+        $this->conditions = $conditions;
+        $this->buildWhereString();
+    }
+
+    public  function getWhereString()
+    {
+
+        return $this->whereString;
+
+    }
     private function buildWhereString()
     {
         if (is_string($this->conditions)) {
@@ -35,6 +50,7 @@ class Where
                 }
             }
         }
+
         return $this->whereString;
     }
 }

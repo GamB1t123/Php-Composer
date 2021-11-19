@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Lib\DB;
+namespace Lib\DB\Common;
 
 
 class Connector

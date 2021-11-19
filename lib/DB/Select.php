@@ -4,14 +4,22 @@
 namespace Lib\DB;
 
 
-class Select
+use Lib\DB\Common\Bridge;
+
+class Select extends Bridge
 {
     private $tabelNames;
     private $fieldNames;
     private $ordered;
     private $orderedType;
-    private int $limited;
+    private int $limited = 0;
     private int $offset = 0;
+    private $whereCondition;
+
+    public  function setWhereCondition($whereCondition) : void
+    {
+        $this->whereCondition = $whereCondition;
+    }
 
     private function  buildoutputString($stringToBuild, $order = false) : string
     {
@@ -38,6 +46,7 @@ class Select
         return $outputString;
 
     }
+
 
     private function getOrderedType()
     {
@@ -99,9 +108,14 @@ class Select
         $this->offset = $offset;
     }
 
-    public function getSqlString()
+    public function getSqlString() : string
     {
-        $sql = 'SELECT ' . $this->getFieldNames() . ' FROM ' . $this->getTableNames();
+        $sql = 'SELECT *' . $this->getFieldNames() . ' FROM ' . $this->getTableNames();
+        $whereStr = '';
+        if (!empty($this->whereCondition)) {
+            $obj = new Where();
+            $whereStr = $obj->getWhereString();
+        }
         if (!empty($this->ordered)) {
             $sql.= ' ORDERED BY ' . $this->setOrdered();
         }
@@ -111,7 +125,18 @@ class Select
                 $sql .= ', ' . $this->getOffset();
             }
         }
+        var_dump($sql);
+        return $sql;
+
+    }
+    public function execute()
+    {
+        $result = $this->fromDB();
+        $result = $result->fetchAll( \PDO::FETCH_ASSOC);
+        return $result;
+        //foreach ($result as $key=>$value) {
 
 
+        //}
     }
 }
