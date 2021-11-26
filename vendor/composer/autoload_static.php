@@ -62,7 +62,10 @@ class ComposerStaticInitc657257d656d82012e3d5fe5ecdd4443
         'Lib\\DB\\Common\\Bridge' => __DIR__ . '/../..' . '/lib/DB/Common/Bridge.php',
         'Lib\\DB\\Common\\Connector' => __DIR__ . '/../..' . '/lib/DB/Common/Connector.php',
         'Lib\\DB\\Common\\SQL' => __DIR__ . '/../..' . '/lib/DB/Common/SQL.php',
+        'Lib\\DB\\Delete' => __DIR__ . '/../..' . '/lib/DB/Delete.php',
+        'Lib\\DB\\Insert' => __DIR__ . '/../..' . '/lib/DB/Insert.php',
         'Lib\\DB\\Select' => __DIR__ . '/../..' . '/lib/DB/Select.php',
+        'Lib\\DB\\Update' => __DIR__ . '/../..' . '/lib/DB/Update.php',
         'Lib\\DB\\Where' => __DIR__ . '/../..' . '/lib/DB/Where.php',
     );
 

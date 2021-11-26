@@ -17,9 +17,7 @@ class Where
 
     public  function getWhereString()
     {
-
         return $this->whereString;
-
     }
     private function buildWhereString()
     {

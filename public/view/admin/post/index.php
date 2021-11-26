@@ -16,6 +16,8 @@
     <input type="submit" name="send" value="Отправить">
 </form>
 
+<a href="post/create"> Create</a>
+
 <table>
 
     <?php foreach ($data as $key =>$row) : ?>
@@ -23,6 +25,8 @@
         <?php foreach ($row as $key => $value) : ?>
         <td><?=$value ?> </td>
         <?php endforeach ?>
+        <td><a href="post/update?id=<?=$row['id'] ?>"> Update</a></td>
+        <td><a href="post/delete?id=<?=$row['id'] ?>"> Delete</a></td>
     </tr>
     <?php endforeach ?>
 </table>

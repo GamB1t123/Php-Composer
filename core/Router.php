@@ -2,8 +2,6 @@
 
 namespace Core;
 
-
-use App\Controller\Admin\Index;
 use App\Controller\Errors\Error404;
 
 class Router
@@ -45,23 +43,6 @@ class Router
             }
         }
     }
-//            $classnamespace = explode('@', $namespace);
-//
-//            if (class_exists($classnamespace[0])) {
-//                $class = new $classnamespace[0];
-//                $method = $classnamespace[1];
-//                var_dump($$method);
-//                if (method_exists($class, $method)) {
-//                    $class->$method();
-//                } else {
-//                    $this->error();
-//                }
-//            } else {
-//                $this->error();
-//            }
-//        }
-//    }
-//
 
 
 }

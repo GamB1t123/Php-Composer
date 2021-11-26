@@ -26,6 +26,9 @@ return array(
     'Lib\\DB\\Common\\Bridge' => $baseDir . '/lib/DB/Common/Bridge.php',
     'Lib\\DB\\Common\\Connector' => $baseDir . '/lib/DB/Common/Connector.php',
     'Lib\\DB\\Common\\SQL' => $baseDir . '/lib/DB/Common/SQL.php',
+    'Lib\\DB\\Delete' => $baseDir . '/lib/DB/Delete.php',
+    'Lib\\DB\\Insert' => $baseDir . '/lib/DB/Insert.php',
     'Lib\\DB\\Select' => $baseDir . '/lib/DB/Select.php',
+    'Lib\\DB\\Update' => $baseDir . '/lib/DB/Update.php',
     'Lib\\DB\\Where' => $baseDir . '/lib/DB/Where.php',
 );
